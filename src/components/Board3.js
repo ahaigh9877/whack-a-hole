@@ -18,7 +18,7 @@ class Board extends Component {
       { id: 7, color: "black", molePresent: false },
       { id: 8, color: "black", molePresent: false }
     ],
-    seconds: 35,
+    seconds: 33,
     score: 0,
     gameInProgress: false
   };
@@ -40,7 +40,11 @@ class Board extends Component {
   }
 
   startGame = () => {
-    this.setState(prevState => ({ gameInProgress: !prevState.gameInProgress }));
+    this.setState(prevState => ({
+      gameInProgress: true,
+      seconds: 33,
+      score: 0
+    }));
   };
 
   goodClickHandler = () => {
@@ -99,8 +103,11 @@ class Board extends Component {
             )}
           </div>
         )}
-        {this.state.gameInProgress === false && (
-          <div className="boardOuter">GAME OVER</div>
+        {this.state.seconds === 0 && (
+          <div className="boardOuter">
+            <p>GAME OVER!</p>
+            <p>You scored: {this.state.score}</p>
+          </div>
         )}
       </div>
     );

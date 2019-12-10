@@ -4,7 +4,7 @@ class Mole3 extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 10000,
+    max: 8000,
     min: 5000,
     enemy: null,
     color: ""
@@ -48,7 +48,7 @@ class Mole3 extends Component {
       } else {
         return setTimeout(() => {
           this.setState({ thingPresent: false, timeout: false });
-        }, 800);
+        }, 700);
       }
     }
   };
