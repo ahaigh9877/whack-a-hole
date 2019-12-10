@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 
-class TestComponent extends Component {
+class Mole3 extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 6,
-    min: 3
+    max: 15000,
+    min: 6000
   };
-
   getRandom() {
     return (
-      (Math.floor(Math.random() * (this.state.max - this.state.min + 1)) +
-        this.state.min) *
-      1000
+      Math.floor(Math.random() * (this.state.max - this.state.min + 1)) +
+      this.state.min
     );
   }
 
@@ -34,20 +32,10 @@ class TestComponent extends Component {
     }
     console.log("showHide fail");
   };
-
   render() {
     this.showHide();
-    return (
-      <div>
-        <h1>Timeout: {this.state.timeout.toString()}</h1>
-        <div className="testBoard">
-          <div className="bigHole">
-            {this.state.thingPresent && <div className="bigMole"></div>}
-          </div>
-        </div>
-      </div>
-    );
+    return <div>{this.state.thingPresent && <div className="mole"></div>}</div>;
   }
 }
 
-export default TestComponent;
+export default Mole3;

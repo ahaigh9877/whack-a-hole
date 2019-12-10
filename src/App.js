@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "./components/Board";
 import Board2 from "./components/Board2";
+import Board3 from "./components/Board3";
 import TestComponent from "./components/TestComponent";
 import TestComponent2 from "./components/TestComponent2";
 import TestComponent3 from "./components/TestComponent3";
@@ -15,7 +16,8 @@ function App() {
       {/* <TestComponent2 /> */}
       {/* <Board2 /> */}
       {/* <LightSwitchExample /> */}
-      <TestComponent4 />
+      {/* <TestComponent4 /> */}
+      <Board3 />
     </div>
   );
 }
