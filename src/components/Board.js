@@ -1,24 +1,37 @@
 import React, { Component } from "react";
+import ReactTimeout from "react-timeout";
+import { Timer } from "./Timer";
 import "./Board.css";
 
 class Board extends Component {
   state = {
     holes: [
-      { id: 0, color: "black" },
-      { id: 1, color: "black" },
-      { id: 2, color: "black" },
+      { id: 0, color: "black", molePresent: false },
+      { id: 1, color: "black", molePresent: false },
+      { id: 2, color: "black", molePresent: false },
 
-      { id: 3, color: "black" },
-      { id: 4, color: "black" },
-      { id: 5, color: "black" },
+      { id: 3, color: "black", molePresent: false },
+      { id: 4, color: "black", molePresent: false },
+      { id: 5, color: "black", molePresent: false },
 
-      { id: 6, color: "black" },
-      { id: 7, color: "black" },
-      { id: 8, color: "black" }
-    ]
+      { id: 6, color: "black", molePresent: false },
+      { id: 7, color: "black", molePresent: false },
+      { id: 8, color: "black", molePresent: false }
+    ],
+    seconds: 0
   };
 
-  handleWhack = hole => {
+  tick() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  addMole = hole => {
     const colors = [
       "blue",
       "red",
@@ -26,37 +39,47 @@ class Board extends Component {
       "green",
       "pink",
       "orange",
-      "white",
       "brown",
       "cyan",
       "purple"
     ];
     const rand = Math.floor(Math.random() * (colors.length - 0) + 0);
-    console.log("RAND ", rand);
-    console.log("Color: ", colors[rand]);
-    console.log("whack ", hole);
     const newHoles = this.state.holes.slice();
     newHoles[hole].color = colors[rand];
+    newHoles[hole].molePresent = true;
+    this.setState({ holes: newHoles });
+
+    this.props.setTimeout(() => this.removeMole(hole), 1000);
+  };
+
+  removeMole = hole => {
+    console.log("this stasssste ", this.state);
+    const newHoles = this.state.holes.slice();
+    newHoles[hole].color = "black";
+    newHoles[hole].molePresent = false;
     this.setState({ holes: newHoles });
   };
 
   render() {
     return (
-      <div className="boardOuter">
-        {this.state.holes.map((hole, index) => (
-          <div
-            className="boardHole"
-            id={index}
-            key={index}
-            style={{
-              backgroundColor: this.state.holes[index].color
-            }}
-            onClick={() => this.handleWhack(index)}
-          ></div>
-        ))}
+      <div>
+        <div className="boardOuter">
+          {this.state.holes.map((hole, index) => (
+            <div
+              className="boardHole"
+              id={index}
+              key={index}
+              style={{
+                backgroundColor: this.state.holes[index].color
+              }}
+              //   onClick={() => this.addMole(index)}
+              onLoad={this.props.setInterval(() => this.addMole(index), 3000)}
+            ></div>
+          ))}
+        </div>
       </div>
     );
   }
 }
 
-export default Board;
+export default ReactTimeout(Board);
