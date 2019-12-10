@@ -19,7 +19,8 @@ class Board extends Component {
       { id: 8, color: "black", molePresent: false }
     ],
     seconds: 30,
-    score: 0
+    score: 0,
+    gameInProgress: false
   };
 
   tick() {
@@ -27,6 +28,8 @@ class Board extends Component {
       this.setState(prevState => ({
         seconds: prevState.seconds - 1
       }));
+    } else {
+      this.setState({ gameInProgress: false });
     }
   }
 
@@ -34,19 +37,31 @@ class Board extends Component {
     this.interval = this.props.setInterval(() => this.tick(), 1000);
   }
 
-  clickHandler = () => {
+  startGame = () => {
+    this.setState(prevState => ({ gameInProgress: !prevState.gameInProgress }));
+  };
+
+  goodClickHandler = () => {
     this.setState(prevState => ({
-      score: prevState.score + 1
+      score: prevState.score + 3
     }));
     console.log("goodClick");
   };
 
+  missClickHandler = () => {
+    this.setState(prevState => ({ score: prevState.score - 1 }));
+  };
+
   badClickHandler = () => {
     this.setState(prevState => ({
-      score: prevState.score - 1
+      score: prevState.score - 3
     }));
     console.log("badClick");
   };
+
+  // friendOrFoe = () => {
+  //   return Math.random() >= 0.5;
+  // };
 
   componentWillUnmount() {
     this.props.clearInterval(this.interval);
@@ -55,20 +70,30 @@ class Board extends Component {
   render() {
     return (
       <div className="testBoard">
-        <h1>Time left: {this.state.seconds}</h1>
-        <h1>Score: {this.state.score}</h1>
-        {this.state.seconds > 0 && (
-          <div className="boardOuter">
-            {this.state.holes.map((hole, index) => (
-              <div className="boardHole" key={index}>
-                <Mole3
-                  id={hole.id}
-                  key={index}
-                  clickHandler={this.clickHandler}
-                  badClickHandler={this.badClickHandler}
-                ></Mole3>
+        {!this.state.gameInProgress && (
+          <button onClick={this.startGame}>Start</button>
+        )}
+        {this.state.gameInProgress && (
+          <div>
+            <h1>Time left: {this.state.seconds}</h1>
+            <h1>Score: {this.state.score}</h1>
+            {this.state.seconds > 0 && (
+              <div className="boardOuter">
+                {this.state.holes.map((hole, index) => (
+                  <div className="boardHole" key={index}>
+                    <Mole3
+                      id={hole.id}
+                      key={index}
+                      // enemy={this.friendOrFoe()}
+                      goodClickHandler={this.goodClickHandler}
+                      badClickHandler={this.badClickHandler}
+                      missClickHandler={this.missClickHandler}
+                      gameInProgress={this.state.gameInProgress}
+                    ></Mole3>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         )}
         {this.state.seconds === 0 && (
