@@ -2,64 +2,14 @@ import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
 
 class TestComponent extends Component {
-  state = { thingPresent: false, isClicked: false, score: 0, max: 6, min: 3 };
-
-  appearTime = () =>
-    this.props.setTimeout(() => {
-      console.log("appearTime");
-      this.setState(prevState => ({
-        thingPresent: false,
-        isClicked: false
-      }));
-    }, 500);
-
-  hideTime = () =>
-    this.props.setTimeout(() => {
-      console.log("hideTime");
-      this.setState(prevState => ({
-        thingPresent: true,
-        isClicked: false
-      }));
-    }, 5000);
-
-  showHide = () => {
-    if (this.state.thingPresent) {
-      console.log("it's present");
-      this.props.clearTimeout(this.appearTime);
-      return this.appearTime();
-    } else if (!this.state.thingPresent) {
-      console.log("it's absent!");
-      this.props.clearTimeout(this.hideTime);
-      return this.hideTime();
-    }
+  state = {
+    thingPresent: false,
+    isClicked: false,
+    timeout: false,
+    score: 0,
+    max: 6,
+    min: 3
   };
-
-  // this.props.clearTimeout(appearTime);
-
-  // this.props.clearTimeout(hideTime);
-
-  // showHide = () => {
-  //   if (this.state.thingPresent) {
-  //     console.log("it's present");
-  //     const appearTime = this.props.setTimeout(() => {
-  //       this.setState(prevState => ({
-  //         thingPresent: false,
-  //         isClicked: false
-  //       }));
-  //     }, 500);
-  //     this.props.clearTimeout(appearTime);
-  //   } else if (!this.state.thingPresent) {
-  //     const hideTime = this.props.setTimeout(() => {
-  //       this.setState(prevState => ({
-  //         thingPresent: true,
-  //         isClicked: false
-  //       }));
-  //     }, 5000);
-  //     this.props.clearTimeout(hideTime);
-  //   }
-  // };
-
-  // (Math.floor(Math.random() * (this.state.max - this.state.min + 1)) + this.state.min) * 1000)
 
   // showHide = () => {
   //   if (!this.state.thingPresent) {
@@ -73,14 +23,48 @@ class TestComponent extends Component {
   //   }
   // };
 
+  // rand =
+  //   Math.floor(
+  //     Math.random() * (this.state.max - this.state.min + 1) + this.state.min
+  //   ) * 1000;
+
+  waitShow = time => {
+    console.log("waitShow", time);
+    // debugger;
+    this.props.setTimeout(() => {
+      this.setState({ thingPresent: true, isClicked: false, timeout: true });
+    }, time);
+  };
+
+  waitHide = () => {
+    console.log("waitHide");
+    this.props.setTimeout(() => {
+      this.setState({ thingPresent: false, timeout: true });
+    }, 500);
+  };
+
   componentDidMount() {
     this.interval = this.props.setInterval(() => {
-      this.showHide();
+      console.log("ComponentDidMount", this.interval);
+      if (!this.state.timeout) {
+        if (!this.state.thingPresent) {
+          return this.waitShow(
+            Math.floor(
+              Math.random() * (this.state.max - this.state.min + 1) +
+                this.state.min
+            ) * 1000
+          );
+        } else {
+          this.waitHide();
+        }
+      } else {
+        this.setState({ timeout: false });
+      }
     }, 1000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    this.props.clearInterval(this.interval);
   }
 
   clickHandler = () => {
@@ -89,7 +73,7 @@ class TestComponent extends Component {
       score: prevState.score + 1,
       thingPresent: false
     }));
-    console.log("clicky cluk");
+    console.log("goodClick");
   };
 
   badClickHandler = () => {
@@ -105,6 +89,7 @@ class TestComponent extends Component {
         <h1>Score: {this.state.score}</h1>
         <h2>isClicked? {this.state.isClicked.toString()}</h2>
         <h2>present? {this.state.thingPresent.toString()}</h2>
+        <h2>Timeout? {this.state.timeout.toString()}</h2>
         <div className="testBoard">
           <div className="bigHole">
             {this.state.thingPresent && (

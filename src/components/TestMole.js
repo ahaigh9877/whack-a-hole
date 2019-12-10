@@ -30,12 +30,9 @@ class Mole extends Component {
     return (
       <div>
         {this.state.thingPresent && (
-          <div className="mole" onClick={() => this.props.clickHandler()}></div>
-        )}
-        {!this.state.thingPresent && (
           <div
-            className="notMole"
-            onClick={() => this.props.badClickHandler()}
+            className="mole"
+            onClick={() => console.log("clicky-cluk")}
           ></div>
         )}
       </div>

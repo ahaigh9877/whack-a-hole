@@ -19,12 +19,13 @@ class Board extends Component {
       { id: 7, color: "black", molePresent: false },
       { id: 8, color: "black", molePresent: false }
     ],
-    seconds: 0
+    seconds: 60,
+    score: 0
   };
 
   tick() {
     this.setState(prevState => ({
-      seconds: prevState.seconds + 1
+      seconds: prevState.seconds - 1
     }));
   }
 
@@ -32,13 +33,34 @@ class Board extends Component {
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
+  clickHandler = () => {
+    this.setState(prevState => ({
+      score: prevState.score + 1
+    }));
+    console.log("goodClick");
+  };
+
+  badClickHandler = () => {
+    this.setState(prevState => ({
+      score: prevState.score - 1
+    }));
+    console.log("badClick");
+  };
+
   render() {
     return (
       <div>
+        <h1>{this.state.seconds}</h1>
+        <h1>Score: {this.state.score}</h1>
         <div className="boardOuter">
           {this.state.holes.map((hole, index) => (
             <div className="boardHole">
-              <Mole id={hole.id} key={index}></Mole>
+              <Mole
+                id={hole.id}
+                key={index}
+                clickHandler={this.clickHandler}
+                badClickHandler={this.badClickHandler}
+              ></Mole>
             </div>
           ))}
         </div>

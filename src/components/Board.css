@@ -56,6 +56,13 @@ button {
   border-radius: 75px;
 }
 
+.notMole {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(65, 44, 12);
+  border-radius: 75px;
+}
+
 .bigHole {
   display: flex;
   align-items: center;
@@ -71,5 +78,13 @@ button {
   width: 220px;
   height: 220px;
   background-color: rgb(198, 137, 32);
+  border-radius: 110px;
+}
+
+.noMole {
+  margin: 0 auto;
+  width: 220px;
+  height: 220px;
+  background-color: rgb(65, 44, 12);
   border-radius: 110px;
 }
