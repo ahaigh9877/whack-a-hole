@@ -35,6 +35,13 @@ button {
   border-radius: 75px;
 }
 
+.mole {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(255, 162, 23);
+  border-radius: 75px;
+}
+
 .bigHole {
   width: 300px;
   height: 300px;
