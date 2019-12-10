@@ -51,7 +51,6 @@ class Board extends Component {
     this.setState(prevState => ({
       score: prevState.score + 3
     }));
-    console.log("goodClick");
   };
 
   missClickHandler = () => {
@@ -62,7 +61,6 @@ class Board extends Component {
     this.setState(prevState => ({
       score: prevState.score - 3
     }));
-    console.log("badClick");
   };
 
   componentWillUnmount() {
@@ -84,7 +82,7 @@ class Board extends Component {
             {this.state.seconds > 30 && (
               <div className="boardOuter">get ready...</div>
             )}
-            {this.state.seconds <= 30 && (
+            {this.state.seconds <= 30 && this.state.seconds >= 1 && (
               <div className="boardOuter">
                 {this.state.holes.map((hole, index) => (
                   <div className="boardHole" key={index}>

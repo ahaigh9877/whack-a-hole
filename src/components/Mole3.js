@@ -1,19 +1,21 @@
 import React, { Component } from "react";
+import Friend from "./Friend";
+import Foe from "./Foe";
 
 class Mole3 extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 8000,
-    min: 5000,
+    max: 7000,
+    min: 1000,
     enemy: null,
-    color: ""
+    color: "",
+    hit: false
   };
 
-  //   componentDidMount() {
-  //     console.log("props enemy ", this.props.enemy);
-  //     this.setState({ enemy: this.props.enemy });
-  //   }
+  componentDidMount() {
+    console.log("comp did mount");
+  }
 
   getRandom() {
     return (
@@ -42,6 +44,8 @@ class Mole3 extends Component {
           this.setState({
             thingPresent: true,
             timeout: false,
+            max: 8000,
+            min: 3000,
             enemy: this.friendOrFoe()
           });
         }, this.getRandom());
@@ -54,7 +58,7 @@ class Mole3 extends Component {
   };
 
   clickHandler = () => {
-    console.log("click handeler: enemy? ", this.state.enemy);
+    this.setState({ hit: true });
     if (this.state.enemy) {
       this.props.goodClickHandler();
     } else {
@@ -62,12 +66,14 @@ class Mole3 extends Component {
     }
   };
 
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    console.log("comp will unmount");
+  }
   render() {
     this.showHide();
     return (
       <div>
-        {this.state.thingPresent && (
+        {this.state.thingPresent && this.state.hit === false && (
           <div
             className="mole"
             onClick={() => this.clickHandler()}
