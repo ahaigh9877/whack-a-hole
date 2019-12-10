@@ -16,25 +16,35 @@ class Mole3 extends Component {
 
   showHide = () => {
     if (!this.state.timeout) {
-      console.log("in showhide");
       this.setState({ timeout: true });
       if (!this.state.thingPresent) {
-        console.log("before show");
         return setTimeout(() => {
           this.setState({ thingPresent: true, timeout: false });
         }, this.getRandom());
       } else {
         return setTimeout(() => {
-          console.log("before hide");
           this.setState({ thingPresent: false, timeout: false });
-        }, 500);
+        }, 800);
       }
     }
-    console.log("showHide fail");
   };
+
+  componentWillUnmount() {}
   render() {
     this.showHide();
-    return <div>{this.state.thingPresent && <div className="mole"></div>}</div>;
+    return (
+      <div>
+        {this.state.thingPresent && (
+          <div className="mole" onClick={() => this.props.clickHandler()}></div>
+        )}
+        {!this.state.thingPresent && (
+          <div
+            className="noMole"
+            onClick={() => this.props.badClickHandler()}
+          ></div>
+        )}
+      </div>
+    );
   }
 }
 
