@@ -2,24 +2,24 @@ import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
 
 class TestComponent extends Component {
-  state = { thingPresent: false, max: 6, min: 1 };
+  state = { thingPresent: true, max: 6, min: 2 };
 
   showHide = () => {
-    this.setState({ thingPresent: true });
-    this.props.setTimeout(() => {
-      this.setState({ thingPresent: false });
-    }, 1000);
+    if (this.state.thingPresent) {
+      this.props.setTimeout(() => {
+        this.setState({ thingPresent: false });
+      }, 1);
+    } else {
+      this.props.setTimeout(() => {
+        this.setState({ thingPresent: true });
+      }, (Math.floor(Math.random() * (this.state.max - this.state.min + 1)) + this.state.min) * 1000);
+    }
   };
 
   componentDidMount() {
-    const randomSecs =
-      Math.floor(Math.random() * (this.state.max - this.state.min + 1)) +
-      this.state.min;
-    console.log("random sex ", randomSecs);
-    this.interval = this.props.setInterval(
-      () => this.showHide(),
-      randomSecs * 1000
-    );
+    this.interval = this.props.setInterval(() => {
+      this.showHide();
+    }, 1000);
   }
 
   componentWillUnmount() {
