@@ -18,18 +18,20 @@ class Board extends Component {
       { id: 7, color: "black", molePresent: false },
       { id: 8, color: "black", molePresent: false }
     ],
-    seconds: 30,
+    seconds: 35,
     score: 0,
     gameInProgress: false
   };
 
   tick() {
-    if (this.state.seconds > 0) {
-      this.setState(prevState => ({
-        seconds: prevState.seconds - 1
-      }));
-    } else {
-      this.setState({ gameInProgress: false });
+    if (this.state.gameInProgress) {
+      if (this.state.seconds > 0) {
+        this.setState(prevState => ({
+          seconds: prevState.seconds - 1
+        }));
+      } else {
+        this.setState({ gameInProgress: false });
+      }
     }
   }
 
@@ -59,10 +61,6 @@ class Board extends Component {
     console.log("badClick");
   };
 
-  // friendOrFoe = () => {
-  //   return Math.random() >= 0.5;
-  // };
-
   componentWillUnmount() {
     this.props.clearInterval(this.interval);
   }
@@ -75,16 +73,21 @@ class Board extends Component {
         )}
         {this.state.gameInProgress && (
           <div>
-            <h1>Time left: {this.state.seconds}</h1>
+            {this.state.seconds <= 30 && (
+              <h1>Time left: {this.state.seconds}</h1>
+            )}
             <h1>Score: {this.state.score}</h1>
-            {this.state.seconds > 0 && (
+            {this.state.seconds > 30 && (
+              <div className="boardOuter">get ready...</div>
+            )}
+            {this.state.seconds <= 30 && (
               <div className="boardOuter">
                 {this.state.holes.map((hole, index) => (
                   <div className="boardHole" key={index}>
                     <Mole3
                       id={hole.id}
                       key={index}
-                      // enemy={this.friendOrFoe()}
+                      seconds={this.state.seconds}
                       goodClickHandler={this.goodClickHandler}
                       badClickHandler={this.badClickHandler}
                       missClickHandler={this.missClickHandler}
@@ -96,7 +99,7 @@ class Board extends Component {
             )}
           </div>
         )}
-        {this.state.seconds === 0 && (
+        {this.state.gameInProgress === false && (
           <div className="boardOuter">GAME OVER</div>
         )}
       </div>

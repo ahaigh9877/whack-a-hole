@@ -4,8 +4,8 @@ class Mole3 extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 15000,
-    min: 6000,
+    max: 10000,
+    min: 5000,
     enemy: null,
     color: ""
   };
@@ -23,8 +23,9 @@ class Mole3 extends Component {
   }
 
   friendOrFoe = () => {
+    if (this.props.seconds < 3) {
+    }
     const coin = Math.random() >= 0.5;
-    console.log("coin: ", coin);
     if (coin) {
       this.setState({ color: "red" });
     } else {
@@ -34,7 +35,7 @@ class Mole3 extends Component {
   };
 
   showHide = () => {
-    if (this.props.gameInProgress && !this.state.timeout) {
+    if (this.props.seconds > 0 && !this.state.timeout) {
       this.setState({ timeout: true });
       if (!this.state.thingPresent) {
         return setTimeout(() => {
@@ -47,7 +48,7 @@ class Mole3 extends Component {
       } else {
         return setTimeout(() => {
           this.setState({ thingPresent: false, timeout: false });
-        }, 1200);
+        }, 800);
       }
     }
   };
