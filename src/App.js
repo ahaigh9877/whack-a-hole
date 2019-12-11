@@ -1,6 +1,7 @@
 import React from "react";
 import Board3 from "./components/Board3";
 import TestComponent4 from "./components/TestComponent4";
+import mallet from "./assets/cursor/EU-Mallet.png";
 
 function App() {
   return (

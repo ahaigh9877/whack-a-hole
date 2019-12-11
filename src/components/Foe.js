@@ -18,7 +18,7 @@ const inAnims = [
 
 const Foe = props => {
   const faces = [farage, johnson, mogg, francois];
-  const rand = Math.floor(Math.random() * 3);
+  const rand = Math.floor(Math.random() * 4);
   const face = faces[rand];
   return (
     <Animated animationIn={inAnims[Math.floor(Math.random() * 8)]}>

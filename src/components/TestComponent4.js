@@ -73,8 +73,7 @@ class TestComponent extends Component {
           <div className="bigHole">
             {this.state.thingPresent && (
               <Animated
-                // animationIn={inAnims[Math.floor(Math.random() * 8)]}
-                animationIn={"zoomIn"}
+                animationIn={inAnims[Math.floor(Math.random() * 8)]}
                 animationInDuration={1000}
                 animationOutDuration={1000}
                 isVisible={true}

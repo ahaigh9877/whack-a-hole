@@ -44,15 +44,15 @@ class Mole3 extends Component {
           this.setState({
             thingPresent: true,
             timeout: false,
-            max: 8000,
-            min: 3000,
+            max: 12000,
+            min: 2000,
             enemy: this.friendOrFoe()
           });
         }, this.getRandom());
       } else {
         return setTimeout(() => {
           this.setState({ thingPresent: false, timeout: false });
-        }, 1200);
+        }, 2000);
       }
     }
   };

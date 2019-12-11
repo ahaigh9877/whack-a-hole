@@ -6,12 +6,18 @@ body {
 div {
   overflow: hidden;
   box-sizing: border-box;
+  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
 }
 
 button {
   width: 100px;
   height: 100px;
+  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
 }
+
+/* .custom-cur {
+  cursor: url(../assets/cursor/EU-Mallet.svg), auto;
+} */
 
 .testBoard {
   position: relative;

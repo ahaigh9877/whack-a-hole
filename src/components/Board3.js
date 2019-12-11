@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
 import Mole3 from "./Mole3";
+import WinScreen from "./WinScreen";
 import "./Board.css";
 
 class Board extends Component {
@@ -101,7 +102,8 @@ class Board extends Component {
             )}
           </div>
         )}
-        {this.state.seconds === 0 && (
+        {this.state.seconds === 0 && this.state.score > 0 && <WinScreen />}
+        {this.state.seconds === 0 && this.state.score <= 0 && (
           <div className="boardOuter">
             <p>GAME OVER!</p>
             <p>You scored: {this.state.score}</p>
