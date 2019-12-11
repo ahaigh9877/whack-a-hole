@@ -44,8 +44,17 @@ button {
 .boardHole {
   width: 150px;
   height: 150px;
-  border: 5px solid rgb(198, 137, 32);
+  /* border: 5px solid rgb(198, 137, 32); */
   background-color: rgb(65, 44, 12);
+  border-radius: 75px;
+  box-sizing: border-box;
+}
+
+.moleContainer {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 150px;
   border-radius: 75px;
 }
 
@@ -55,16 +64,68 @@ button {
   border-radius: 75px;
 }
 
+.friend {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 8px solid blue;
+  border-radius: 75px;
+  box-sizing: border-box;
+  animation-name: popup;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1;
+}
+
+.foe {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 8px solid red;
+  border-radius: 75px;
+  box-sizing: border-box;
+  /* animation-name: popup;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1; */
+}
+
 .notMole {
   width: 150px;
   height: 150px;
+  margin: 0 auto;
   background-color: rgb(65, 44, 12);
   border-radius: 75px;
+  box-sizing: border-box;
+}
+
+@keyframes popup {
+  0% {
+    transform: translate(0, 400px);
+  }
+  25% {
+    transform: translate(0, 0);
+  }
+  75% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 400px);
+  }
+}
+
+/* -------------- For simple test ---------------- */
+
+.noMole {
+  margin: 0 auto;
+  width: 220px;
+  height: 220px;
+  background-color: rgb(65, 44, 12);
+  border-radius: 110px;
 }
 
 .bigHole {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 300px;
   height: 300px;
   border: 5px solid rgb(198, 137, 32);
@@ -78,12 +139,7 @@ button {
   height: 220px;
   background-color: rgb(198, 137, 32);
   border-radius: 110px;
-}
-
-.noMole {
-  margin: 0 auto;
-  width: 220px;
-  height: 220px;
-  background-color: rgb(65, 44, 12);
-  border-radius: 110px;
+  /* animation-name: popup;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1; */
 }

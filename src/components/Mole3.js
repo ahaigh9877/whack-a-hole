@@ -29,9 +29,9 @@ class Mole3 extends Component {
     }
     const coin = Math.random() >= 0.5;
     if (coin) {
-      this.setState({ color: "red" });
+      this.setState({ enemy: true });
     } else {
-      this.setState({ color: "blue" });
+      this.setState({ enemy: false });
     }
     return coin;
   };
@@ -52,12 +52,13 @@ class Mole3 extends Component {
       } else {
         return setTimeout(() => {
           this.setState({ thingPresent: false, timeout: false });
-        }, 700);
+        }, 1200);
       }
     }
   };
 
   clickHandler = () => {
+    console.log("handlin' click");
     this.setState({ hit: true });
     if (this.state.enemy) {
       this.props.goodClickHandler();
@@ -72,17 +73,16 @@ class Mole3 extends Component {
   render() {
     this.showHide();
     return (
-      <div>
-        {this.state.thingPresent && this.state.hit === false && (
-          <div
-            className="mole"
-            onClick={() => this.clickHandler()}
-            style={{ backgroundColor: this.state.color }}
-          ></div>
+      <div className="moleContainer">
+        {this.state.thingPresent && !this.state.hit && this.state.enemy && (
+          <Foe clickHandler={this.clickHandler} />
+        )}
+        {this.state.thingPresent && !this.state.hit && !this.state.enemy && (
+          <Friend clickHandler={this.clickHandler} />
         )}
         {!this.state.thingPresent && (
           <div
-            className="noMole"
+            className="notMole"
             onClick={() => this.props.missClickHandler()}
           ></div>
         )}
