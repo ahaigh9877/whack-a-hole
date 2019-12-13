@@ -9,6 +9,9 @@ import "./Board.css";
 import LoseScreen from "./LoseScreen";
 import clangSound from "../assets/sounds/clang.mp3";
 import tickSound from "../assets/sounds/clock.mp3";
+import bashees from "../assets/foes/ALLFOES.png";
+import decoys from "../assets/friends/ALLFRIENDS.png";
+import title from "../assets/Title.svg";
 
 const clang = new UIfx(clangSound);
 
@@ -112,6 +115,13 @@ class Board extends Component {
         <div className="testBoard">
           {!this.state.gameInProgress && (
             <div className="instructionsContainer">
+              <img className="bashTitle" alt="BASH A BREXITER!" src={title} />
+              <div className="bashContainer">
+                <img className="bashees" src={bashees} alt="people to bash" />
+              </div>
+              <div className="dontBashContainer">
+                <img className="decoys" src={decoys} alt="things not to bash" />
+              </div>
               <div className="instructions">
                 <h1 style={{ color: "#003399" }}>Instructions</h1>
                 <h3>

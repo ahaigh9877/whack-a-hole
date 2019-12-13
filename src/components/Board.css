@@ -154,6 +154,14 @@ a {
   animation-iteration-count: 1;
 }
 
+.bashTitle {
+  position: absolute;
+  top: 65px;
+  left: 100px;
+  width: 1000px;
+  filter: drop-shadow(0 0 15px #ffffff);
+}
+
 .instructionsContainer {
   display: flex;
   flex-direction: column;
@@ -174,6 +182,34 @@ a {
   font-size: 30px;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.5);
+}
+
+.bashContainer {
+  position: absolute;
+  left: 45px;
+  bottom: 40px;
+  width: 350px;
+  height: 350px;
+  border-radius: 0 0 20px 20px;
+}
+
+.dontBashContainer {
+  position: absolute;
+  right: 45px;
+  bottom: 40px;
+  width: 350px;
+  height: 350px;
+  border-radius: 0 0 20px 20px;
+}
+
+.bashees {
+  width: 350px;
+  height: 350px;
+}
+
+.decoys {
+  width: 350px;
+  height: 350px;
 }
 
 .startButton {
