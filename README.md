@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Novel libraries, technologies and techniques used in this project
+
+As an "action" game, getting to grips with timing was important for this project, specifically use of setTimeout which, although part of JS and not a new technology as such, is not something that has been covered at all during the last ten weeks. It proved extremely troublesome to use.
+
+In addition to that, I used react-animated-css for some animation, react-sound and uifx for playing sounds, a bit of React Hooks, and a fun little confetti add-on for the win-screen.
+
 ## Available Scripts
 
 In the project directory, you can run:
