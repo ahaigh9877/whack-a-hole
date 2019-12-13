@@ -1,21 +1,20 @@
 import React, { Component } from "react";
+import UIfx from "uifx";
 import Friend from "./Friend";
 import Foe from "./Foe";
+import whackSound from "../assets/sounds/whack.mp3";
+
+const whack = new UIfx(whackSound);
 
 class Mole3 extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 7000,
-    min: 1000,
+    max: 6000,
+    min: 2000,
     enemy: null,
-    color: "",
-    hit: false
+    color: ""
   };
-
-  componentDidMount() {
-    console.log("comp did mount");
-  }
 
   getRandom() {
     return (
@@ -25,8 +24,6 @@ class Mole3 extends Component {
   }
 
   friendOrFoe = () => {
-    if (this.props.seconds < 3) {
-    }
     const coin = Math.random() >= 0.5;
     if (coin) {
       this.setState({ enemy: true });
@@ -34,6 +31,17 @@ class Mole3 extends Component {
       this.setState({ enemy: false });
     }
     return coin;
+  };
+
+  clickHandler = () => {
+    whack.play();
+    console.log("ENEMY?  ", this.state.enemy);
+    this.setState({ thingPresent: false, hit: true });
+    if (this.state.enemy) {
+      this.props.goodClickHandler();
+    } else {
+      this.props.badClickHandler();
+    }
   };
 
   showHide = () => {
@@ -44,8 +52,8 @@ class Mole3 extends Component {
           this.setState({
             thingPresent: true,
             timeout: false,
-            max: 12000,
-            min: 2000,
+            // max: 8000,
+            // min: 5000,
             enemy: this.friendOrFoe()
           });
         }, this.getRandom());
@@ -57,27 +65,37 @@ class Mole3 extends Component {
     }
   };
 
-  clickHandler = () => {
-    console.log("handlin' click");
-    this.setState({ hit: true });
-    if (this.state.enemy) {
-      this.props.goodClickHandler();
-    } else {
-      this.props.badClickHandler();
-    }
-  };
+  // showHide = () => {
+  //   if (!this.state.thingPresent) {
+  //     return setTimeout(() => {
+  //       this.setState({
+  //         thingPresent: true,
+  //         max: 8000,
+  //         min: 5000,
+  //         enemy: this.friendOrFoe()
+  //       });
+  //     }, this.getRandom());
+  //   } else {
+  //     return setTimeout(() => {
+  //       this.setState({ thingPresent: false });
+  //     }, 2000);
+  //   }
+  // };
 
-  componentWillUnmount() {
-    console.log("comp will unmount");
-  }
+  // componentDidMount() {
+  //   setInterval(() => {
+  //     this.showHide();
+  //   }, 1000);
+  // }
+
   render() {
     this.showHide();
     return (
       <div className="moleContainer">
-        {this.state.thingPresent && !this.state.hit && this.state.enemy && (
+        {this.state.thingPresent && this.state.enemy && (
           <Foe clickHandler={this.clickHandler} />
         )}
-        {this.state.thingPresent && !this.state.hit && !this.state.enemy && (
+        {this.state.thingPresent && !this.state.enemy && (
           <Friend clickHandler={this.clickHandler} />
         )}
         {!this.state.thingPresent && (

@@ -2,7 +2,7 @@ import React from "react";
 import farage from "../assets/foes/farage.png";
 import johnson from "../assets/foes/johnson.png";
 import mogg from "../assets/foes/mogg.png";
-import francois from "../assets/foes/francois.png";
+import gove from "../assets/foes/gove.png";
 import { Animated } from "react-animated-css";
 
 const inAnims = [
@@ -17,7 +17,7 @@ const inAnims = [
 ];
 
 const Foe = props => {
-  const faces = [farage, johnson, mogg, francois];
+  const faces = [farage, johnson, mogg, gove];
   const rand = Math.floor(Math.random() * 4);
   const face = faces[rand];
   return (

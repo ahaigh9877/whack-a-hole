@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy|Special+Elite|Rubik&display=swap");
+
 body {
   margin: 0;
   padding: 0;
@@ -6,18 +8,199 @@ body {
 div {
   overflow: hidden;
   box-sizing: border-box;
-  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
+  /* cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto; */
+}
+
+div:active:hover {
+  /* cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto; */
+  transition: 0.3s;
 }
 
 button {
   width: 100px;
   height: 100px;
-  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
+  /* cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto; */
 }
 
-/* .custom-cur {
-  cursor: url(../assets/cursor/EU-Mallet.svg), auto;
-} */
+button:active:hover {
+  /* cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto; */
+}
+
+.startScreenContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 50px auto;
+  width: 1200px;
+  height: 1100px;
+  border: 2px solid #003399;
+  background-color: rgb(37, 87, 87);
+  border-radius: 10px;
+}
+
+.passportContainer {
+  width: 1000px;
+  animation-name: fadeUp;
+  animation-duration: 5000ms;
+  animation-iteration-count: 1;
+}
+
+.passport {
+  width: 1000px;
+}
+
+.introTextContainer {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  border-radius: 30px;
+  text-align: center;
+  font-family: "Special Elite", sans-serif;
+  font-size: 60px;
+  color: #003399;
+  background-color: rgba(255, 255, 255, 0.6);
+  animation-name: fadeIn;
+  animation-duration: 2000ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(800px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+.bashABrexiterContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1200px;
+  height: 1100px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bashABrexiter {
+  padding: 100px;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 200px;
+  text-align: center;
+  color: #003399;
+  text-shadow: 0 0 100px white;
+  animation-name: zoomIn;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+}
+
+.BaBbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin-top: -70px;
+  padding-top: 25px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  background-color: #003399;
+  color: #ffcc00;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 100px;
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bashABrexiterBg {
+  width: 1200px;
+  height: 1100px;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation-name: fadeIn;
+  animation-duration: 2000ms;
+  animation-iteration-count: 1;
+}
+
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1000px;
+}
+
+.instructions {
+  width: 900px;
+  height: 550px;
+  padding: 30px 100px 30px 100px;
+  margin: 0 100px 0 100px;
+  border-radius: 40px;
+  text-align: center;
+  line-height: 60px;
+  font-family: "Rubik";
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.5);
+}
+
+.startButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin-top: 120px;
+  margin-bottom: -40px;
+  padding-top: 25px;
+
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  background-color: white;
+
+  color: #003399;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 100px;
+  transition: 0.3s;
+}
+
+.startButton:hover {
+  box-shadow: inset 0 0 20px 20px #91b6ff, 0 0 20px 20px #faedba;
+  transition: 0.3s;
+}
 
 .testBoard {
   position: relative;
@@ -25,12 +208,93 @@ button {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin: 0 auto;
-  width: 700px;
-  height: 900px;
-  border: 2px solid green;
+  margin: 50px auto;
+  width: 1200px;
+  height: 1100px;
+  border: 2px solid #003399;
   border-radius: 10px;
-  background-color: rgb(146, 243, 104);
+  background-color: #ffcc00;
+}
+
+.timeLeftText {
+  position: absolute;
+  left: 90px;
+  top: 40px;
+  color: #003399;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 50px;
+}
+
+.scoreText {
+  position: absolute;
+  right: 120px;
+  top: 40px;
+  color: #003399;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 50px;
+}
+
+.timeLeft {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 100px;
+  top: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: #003399;
+  color: white;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 40px;
+}
+
+.scoreCounter {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 100px;
+  top: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: #003399;
+  color: white;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 40px;
+}
+
+.arrow {
+  height: 300px;
+  transform-origin: 50% 95%;
+  transition: 0.3s;
+}
+
+.brexometerText {
+  position: absolute;
+  top: 250px;
+  left: 65px;
+  margin: 0;
+  font-family: "Special Elite";
+  font-size: 70px;
+  margin-bottom: -10px;
+}
+
+.arrowHolder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 600px;
+  height: 320px;
+  margin-top: -70px;
+  border: 2px solid #003399;
+  border-radius: 410px 410px 0 0;
+  margin: 20px auto;
+  z-index: 3;
 }
 
 .boardOuter {
@@ -39,20 +303,24 @@ button {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  font-family: "Luckiest Guy";
+  font-size: 100px;
+  color: white;
   margin: 0 auto;
-  width: 600px;
-  height: 600px;
-  border: 2px solid green;
+  width: 1000px;
+  height: 700px;
+  border: 2px solid #003399;
   border-radius: 10px;
-  background-color: rgb(105, 199, 64);
+  background-color: #003399;
 }
 
 .boardHole {
   width: 150px;
   height: 150px;
   /* border: 5px solid rgb(198, 137, 32); */
-  background-color: rgb(65, 44, 12);
-  border-radius: 75px;
+  background-color: #ffcc00;
+  border-radius: 15px;
+  margin: 20px 30px 10px 30px;
   box-sizing: border-box;
 }
 
@@ -61,7 +329,7 @@ button {
   align-items: center;
   width: 150px;
   height: 150px;
-  border-radius: 75px;
+  /* border-radius: 75px; */
 }
 
 .mole {
@@ -74,21 +342,25 @@ button {
   width: 150px;
   height: 150px;
   margin: 0 auto;
-  border: 8px solid blue;
-  border-radius: 75px;
+  /* background-color: blue; */
+  /* border: 8px solid #003399; */
+  /* border-radius: 75px; */
   box-sizing: border-box;
-  animation-name: popup;
+  filter: drop-shadow(0 0 15px #003399);
+  /* animation-name: popup;
   animation-duration: 1200ms;
-  animation-iteration-count: 1;
+  animation-iteration-count: 1; */
 }
 
 .foe {
   width: 150px;
   height: 150px;
   margin: 0 auto;
-  border: 8px solid red;
-  border-radius: 75px;
+  /* background-color: red; */
+  /* border: 8px solid red; */
+  /* border-radius: 75px; */
   box-sizing: border-box;
+  filter: drop-shadow(2px 2px 0 red) drop-shadow(-2px -2px 0 red);
   /* animation-name: popup;
   animation-duration: 1200ms;
   animation-iteration-count: 1; */
@@ -98,9 +370,131 @@ button {
   width: 150px;
   height: 150px;
   margin: 0 auto;
-  background-color: rgb(65, 44, 12);
+  background-color: transparent;
   border-radius: 75px;
   box-sizing: border-box;
+}
+
+.winScreenContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 50px auto;
+  width: 1200px;
+  height: 1100px;
+  border: 2px solid #003399;
+  border-radius: 10px;
+  background-color: #f6dd77;
+}
+
+.winTextContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffcc00;
+  top: 400px;
+  left: 350px;
+}
+
+.winText {
+  padding: 30px;
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 130px;
+  text-shadow: 0 0 20px #f6dd77;
+}
+
+.tryAgainButtonWin {
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  color: #003399;
+  font-size: 35px;
+  background-color: #ffcc00;
+  transition: 0.3s;
+}
+
+.tryAgainButtonWin:hover {
+  box-shadow: 0 0 30px 30px #f6dd77;
+  transition: 0.3s;
+}
+
+.loseScreenContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 50px auto;
+  width: 1200px;
+  height: 1100px;
+  padding: 0 100px 0 100px;
+  border: 2px solid #003399;
+  border-radius: 10px;
+  background-image: url(../assets/losescreen/torn-uk-flag.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loseText {
+  text-align: center;
+  font-family: "Special Elite", sans-serif;
+  font-size: 70px;
+  color: darkgray;
+  text-shadow: 0 0 10px black;
+  margin-top: 320px;
+}
+
+.tryAgainButtonLose {
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  color: black;
+  font-family: "Special Elite", sans-serif;
+  font-size: 35px;
+  background-color: darkgrey;
+}
+
+/* -------------- For simple test ---------------- */
+
+.noMole {
+  margin: 0 auto;
+  width: 220px;
+  height: 220px;
+  background-color: rgb(65, 44, 12);
+  border-radius: 110px;
+}
+
+.bigHole {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0 0 30px;
+  width: 300px;
+  height: 300px;
+  border: 5px solid rgb(198, 137, 32);
+  background-color: rgb(65, 44, 12);
+  border-radius: 75px;
+}
+
+.bigMole {
+  margin: 0 auto;
+  width: 220px;
+  height: 220px;
+  background-color: rgb(198, 137, 32);
+  border-radius: 110px;
+  /* animation-name: popup;
+  animation-duration: 800ms;
+  animation-iteration-count: 1; */
 }
 
 @keyframes popup {
@@ -118,34 +512,17 @@ button {
   }
 }
 
-/* -------------- For simple test ---------------- */
-
-.noMole {
-  margin: 0 auto;
-  width: 220px;
-  height: 220px;
-  background-color: rgb(65, 44, 12);
-  border-radius: 110px;
-}
-
-.bigHole {
+.testBoard2 {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 300px;
-  border: 5px solid rgb(198, 137, 32);
-  background-color: rgb(65, 44, 12);
-  border-radius: 75px;
-}
-
-.bigMole {
-  margin: 0 auto;
-  width: 220px;
-  height: 220px;
-  background-color: rgb(198, 137, 32);
-  border-radius: 110px;
-  /* animation-name: popup;
-  animation-duration: 1200ms;
-  animation-iteration-count: 1; */
+  margin: 50px auto;
+  width: 1200px;
+  height: 1100px;
+  border: 2px solid #003399;
+  border-radius: 10px;
+  background-color: #f6dd77;
 }
