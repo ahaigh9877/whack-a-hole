@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
-import UIfx from "uifx";
-import Sound from "react-sound";
+import { Redirect } from "react-router-dom";
 import Mole3 from "./Mole3";
 import WinScreen from "./WinScreen";
 import Brexometer from "./Brexometer";
 import "./Board.css";
 import LoseScreen from "./LoseScreen";
-import clangSound from "../assets/sounds/clang.mp3";
-import tickSound from "../assets/sounds/clock.mp3";
-
-const clang = new UIfx(clangSound);
-const ticking = new UIfx(tickSound);
 
 class Board extends Component {
   state = {
@@ -31,7 +25,7 @@ class Board extends Component {
       { id: 10, color: "black", molePresent: false },
       { id: 11, color: "black", molePresent: false }
     ],
-    seconds: 33,
+    seconds: 8,
     score: 0,
     gameInProgress: false
   };
@@ -52,17 +46,7 @@ class Board extends Component {
     this.interval = this.props.setInterval(() => this.tick(), 1000);
   }
 
-  tryAgain = () => {
-    console.log("try again");
-    this.setState({ gameInProgress: false, seconds: 33, score: 0 });
-  };
-
   startGame = () => {
-    //setTimeout(() => ticking.setVolume(0.5).play(), 23000);
-    setTimeout(
-      () => <Sound url={tickSound} playStatus={Sound.status.PLAYING} />,
-      23000
-    );
     this.setState(prevState => ({
       gameInProgress: true,
       seconds: 33,
@@ -71,14 +55,12 @@ class Board extends Component {
   };
 
   goodClickHandler = () => {
-    console.log("good click");
     this.setState(prevState => ({
       score: prevState.score + 3
     }));
   };
 
   missClickHandler = () => {
-    clang.play();
     this.setState(prevState => ({ score: prevState.score - 1 }));
   };
 
@@ -89,68 +71,26 @@ class Board extends Component {
   };
 
   componentWillUnmount() {
-    console.log("comp will unmount");
     this.props.clearInterval(this.interval);
   }
 
   render() {
-    if (this.state.score > 29) {
-      return (
-        <div>
-          <Sound url={tickSound} playStatus={Sound.status.STOPPED} />
-          <WinScreen score={this.state.score} tryAgain={this.tryAgain} />
-        </div>
-      );
-    } else if (this.state.score < -29) {
-      return (
-        <div>
-          <Sound url={tickSound} playStatus={Sound.status.STOPPED} />
-          <LoseScreen score={this.state.score} tryAgain={this.tryAgain} />
-        </div>
-      );
-    } else if (this.state.seconds > 0) {
+    if (this.state.seconds > 0) {
       return (
         <div className="testBoard">
           {!this.state.gameInProgress && (
-            <div className="instructionsContainer">
-              <div className="instructions">
-                <h1 style={{ color: "#003399" }}>Instructions</h1>
-                <h3>
-                  <em>Brexiters are everywhere!</em>
-                </h3>
-                Every time they pop up, hit them with your EuroMallet&#8482;...
-                but be careful to avoid whacking the decoys or your score could
-                go into negative figures and that would be very bad indeed...
-              </div>
-              <button onClick={this.startGame} className="startButton">
-                Start
-              </button>
-            </div>
+            <button onClick={this.startGame}>Start</button>
           )}
           {this.state.gameInProgress && (
             <div>
-              <div className="timeLeftText">time left</div>
-              <div className="timeLeft">
-                {this.state.seconds > 30 && (
-                  <h1 style={{ textAlign: "center", margin: "10px" }}>30</h1>
-                )}
+              <div>
                 {this.state.seconds <= 30 && (
                   <h1 style={{ textAlign: "center", margin: "10px" }}>
-                    {this.state.seconds}
+                    Time left: {this.state.seconds}
                   </h1>
                 )}
               </div>
-
-              {this.state.seconds < 10 && (
-                <Sound url={tickSound} playStatus={Sound.status.PLAYING} />
-              )}
-
               <Brexometer score={this.state.score} />
-
-              <div className="scoreText">score</div>
-              <div className="scoreCounter">
-                <h1>{this.state.score}</h1>
-              </div>
               {this.state.seconds > 30 && (
                 <div className="boardOuter">get ready...</div>
               )}
@@ -176,9 +116,9 @@ class Board extends Component {
         </div>
       );
     } else if (this.state.seconds === 0 && this.state.score > 0) {
-      return <WinScreen score={this.state.score} tryAgain={this.tryAgain} />;
-    } else if (this.state.seconds === 0 && this.state.score <= 0) {
-      return <LoseScreen score={this.state.score} tryAgain={this.tryAgain} />;
+      return <WinScreen score={this.state.score} startGame={this.startGame} />;
+    } else if (this.state.seconds === 0 && this.state.score < 0) {
+      return <LoseScreen score={this.state.score} startGame={this.startGame} />;
     }
   }
 }

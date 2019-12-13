@@ -1,29 +1,25 @@
 import React, { Component } from "react";
-import UIfx from "uifx";
-import Friend from "./Friend";
-import Foe from "./Foe";
-import whackSound from "../assets/sounds/whack.mp3";
-import smashSound from "../assets/sounds/smash.mp3";
+import FriendTest from "./FriendTest";
+import FoeTest from "./FoeTest";
+import bang from "../assets/simon-bang.gif";
 
-const whack = new UIfx(whackSound);
-const smash = new UIfx(smashSound);
-
-class Mole3 extends Component {
+class Mole3Test extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 10000,
+    max: 6000,
     min: 2000,
     enemy: null,
-    color: ""
+    color: "",
+    hit: false
   };
 
-  getRandom() {
+  getRandom = () => {
     return (
       Math.floor(Math.random() * (this.state.max - this.state.min + 1)) +
       this.state.min
     );
-  }
+  };
 
   friendOrFoe = () => {
     const coin = Math.random() >= 0.5;
@@ -36,14 +32,12 @@ class Mole3 extends Component {
   };
 
   clickHandler = () => {
-    console.log("ENEMY?  ", this.state.enemy);
     this.setState({ thingPresent: false, hit: true });
+
     if (this.state.enemy) {
-      smash.play();
-      this.props.goodClickHandler();
+      this.props.enemyClickHandler();
     } else {
-      whack.play();
-      this.props.badClickHandler();
+      this.props.friendClickHandler();
     }
   };
 
@@ -57,6 +51,7 @@ class Mole3 extends Component {
             timeout: false,
             // max: 8000,
             // min: 5000,
+            hit: false,
             enemy: this.friendOrFoe()
           });
         }, this.getRandom());
@@ -96,12 +91,15 @@ class Mole3 extends Component {
     return (
       <div className="moleContainer">
         {this.state.thingPresent && this.state.enemy && (
-          <Foe clickHandler={this.clickHandler} />
+          <FoeTest clickHandler={this.clickHandler} />
         )}
         {this.state.thingPresent && !this.state.enemy && (
-          <Friend clickHandler={this.clickHandler} />
+          <FriendTest clickHandler={this.clickHandler} />
         )}
-        {!this.state.thingPresent && (
+        {/* {this.state.hit && (
+          <img src={bang} alt="bang gif" style={{ width: "150px" }} />
+        )} */}
+        {!this.state.thingPresent && !this.state.hit && (
           <div
             className="notMole"
             onClick={() => this.props.missClickHandler()}
@@ -112,4 +110,4 @@ class Mole3 extends Component {
   }
 }
 
-export default Mole3;
+export default Mole3Test;
