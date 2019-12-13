@@ -39,10 +39,10 @@ class Mole3 extends Component {
     console.log("ENEMY?  ", this.state.enemy);
     this.setState({ thingPresent: false, hit: true });
     if (this.state.enemy) {
-      whack.play();
+      smash.play();
       this.props.goodClickHandler();
     } else {
-      smash.play();
+      whack.play();
       this.props.badClickHandler();
     }
   };

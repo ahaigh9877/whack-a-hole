@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
 import UIfx from "uifx";
+import Sound from "react-sound";
 import Mole3 from "./Mole3";
 import WinScreen from "./WinScreen";
 import Brexometer from "./Brexometer";
@@ -57,7 +58,11 @@ class Board extends Component {
   };
 
   startGame = () => {
-    setTimeout(() => ticking.setVolume(0.5).play(), 3000);
+    //setTimeout(() => ticking.setVolume(0.5).play(), 23000);
+    setTimeout(
+      () => <Sound url={tickSound} playStatus={Sound.status.PLAYING} />,
+      23000
+    );
     this.setState(prevState => ({
       gameInProgress: true,
       seconds: 33,
@@ -84,14 +89,25 @@ class Board extends Component {
   };
 
   componentWillUnmount() {
+    console.log("comp will unmount");
     this.props.clearInterval(this.interval);
   }
 
   render() {
     if (this.state.score > 29) {
-      return <WinScreen score={this.state.score} tryAgain={this.tryAgain} />;
+      return (
+        <div>
+          <Sound url={tickSound} playStatus={Sound.status.STOPPED} />
+          <WinScreen score={this.state.score} tryAgain={this.tryAgain} />
+        </div>
+      );
     } else if (this.state.score < -29) {
-      return <LoseScreen score={this.state.score} tryAgain={this.tryAgain} />;
+      return (
+        <div>
+          <Sound url={tickSound} playStatus={Sound.status.STOPPED} />
+          <LoseScreen score={this.state.score} tryAgain={this.tryAgain} />
+        </div>
+      );
     } else if (this.state.seconds > 0) {
       return (
         <div className="testBoard">
@@ -124,6 +140,10 @@ class Board extends Component {
                   </h1>
                 )}
               </div>
+
+              {this.state.seconds < 10 && (
+                <Sound url={tickSound} playStatus={Sound.status.PLAYING} />
+              )}
 
               <Brexometer score={this.state.score} />
 
