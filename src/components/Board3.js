@@ -11,7 +11,6 @@ import clangSound from "../assets/sounds/clang.mp3";
 import tickSound from "../assets/sounds/clock.mp3";
 
 const clang = new UIfx(clangSound);
-const ticking = new UIfx(tickSound);
 
 class Board extends Component {
   state = {
