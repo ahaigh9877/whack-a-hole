@@ -17,6 +17,9 @@ const LoseScreen = props => {
         <br />
         with a score of {props.score}
         <br />
+        The country descends into darkness and you're trapped forever with the
+        Brexiters. <br />
+        <br />
         No more free travel for you...
       </div>
       <button className="tryAgainButtonLose" onClick={() => props.tryAgain()}>

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
-import { Redirect } from "react-router-dom";
 import passport from "../assets/start-screen/Passport.png";
-import { findAllByDisplayValue } from "@testing-library/dom";
 import Board3 from "../components/Board3";
 import { Link } from "react-router-dom";
 
@@ -38,7 +36,7 @@ class StartScreen extends Component {
             Don't let them get away with it...
           </div>
         )}
-        {this.state.seconds > 6 && (
+        {this.state.seconds > 8 && (
           <div className="bashABrexiterContainer">
             <div className="bashABrexiter">
               BASH
