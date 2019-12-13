@@ -8,22 +8,22 @@ body {
 div {
   overflow: hidden;
   box-sizing: border-box;
-  /* cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto; */
+  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
 }
 
 div:active:hover {
-  /* cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto; */
+  cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto;
   transition: 0.3s;
 }
 
 button {
   width: 100px;
   height: 100px;
-  /* cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto; */
+  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
 }
 
 button:active:hover {
-  /* cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto; */
+  cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto;
 }
 
 .startScreenContainer {
@@ -212,6 +212,7 @@ a {
   width: 1200px;
   height: 1100px;
   border: 2px solid #003399;
+  box-shadow: 0 0 40px 5px #003399;
   border-radius: 10px;
   background-color: #ffcc00;
 }
@@ -386,7 +387,8 @@ a {
   height: 1100px;
   border: 2px solid #003399;
   border-radius: 10px;
-  background-color: #f6dd77;
+
+  box-shadow: 0 0 40px 5px #ffcc00;
 }
 
 .winTextContainer {
@@ -396,8 +398,16 @@ a {
   justify-content: center;
   align-items: center;
   color: #ffcc00;
-  top: 400px;
-  left: 350px;
+  top: 200px;
+}
+
+.winExtraText {
+  font-family: "Rubik", sans-serif;
+  width: 800px;
+  padding: 10px 40px 40px 40px;
+  text-align: center;
+  font-size: 40px;
+  text-shadow: 0 0 20px #f6dd77;
 }
 
 .winText {
@@ -407,21 +417,32 @@ a {
   text-shadow: 0 0 20px #f6dd77;
 }
 
+.winScoreText {
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  padding: 20px;
+  margin-top: -20px;
+  font-size: 60px;
+  text-shadow: 0 0 20px #f6dd77;
+}
+
 .tryAgainButtonWin {
   width: 200px;
   height: 200px;
   margin: 50px;
+  padding-bottom: 15px;
   border: none;
   border-radius: 100px;
   outline: none;
   color: #003399;
-  font-size: 35px;
+  font-family: "Rubik", sans-serif;
+  font-size: 45px;
   background-color: #ffcc00;
   transition: 0.3s;
 }
 
 .tryAgainButtonWin:hover {
-  box-shadow: 0 0 30px 30px #f6dd77;
+  box-shadow: 0 0 40px 20px #f6dd77;
   transition: 0.3s;
 }
 

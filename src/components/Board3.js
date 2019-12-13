@@ -7,8 +7,10 @@ import Brexometer from "./Brexometer";
 import "./Board.css";
 import LoseScreen from "./LoseScreen";
 import clangSound from "../assets/sounds/clang.mp3";
+import tickSound from "../assets/sounds/clock.mp3";
 
 const clang = new UIfx(clangSound);
+const ticking = new UIfx(tickSound);
 
 class Board extends Component {
   state = {
@@ -55,6 +57,7 @@ class Board extends Component {
   };
 
   startGame = () => {
+    setTimeout(() => ticking.setVolume(0.5).play(), 3000);
     this.setState(prevState => ({
       gameInProgress: true,
       seconds: 33,
@@ -95,12 +98,13 @@ class Board extends Component {
           {!this.state.gameInProgress && (
             <div className="instructionsContainer">
               <div className="instructions">
-                <h1>Instructions</h1>
-                <em>Brexiters are everywhere!</em>
-                <br />
-                Every time they pop up, hit them with your euro-mallet... but be
-                careful to avoid whacking the decoys or your score could go into
-                negative figures and that would be very bad indeed...
+                <h1 style={{ color: "#003399" }}>Instructions</h1>
+                <h3>
+                  <em>Brexiters are everywhere!</em>
+                </h3>
+                Every time they pop up, hit them with your EuroMallet&#8482;...
+                but be careful to avoid whacking the decoys or your score could
+                go into negative figures and that would be very bad indeed...
               </div>
               <button onClick={this.startGame} className="startButton">
                 Start

@@ -3,14 +3,16 @@ import UIfx from "uifx";
 import Friend from "./Friend";
 import Foe from "./Foe";
 import whackSound from "../assets/sounds/whack.mp3";
+import smashSound from "../assets/sounds/smash.mp3";
 
 const whack = new UIfx(whackSound);
+const smash = new UIfx(smashSound);
 
 class Mole3 extends Component {
   state = {
     thingPresent: false,
     timeout: false,
-    max: 6000,
+    max: 10000,
     min: 2000,
     enemy: null,
     color: ""
@@ -34,12 +36,13 @@ class Mole3 extends Component {
   };
 
   clickHandler = () => {
-    whack.play();
     console.log("ENEMY?  ", this.state.enemy);
     this.setState({ thingPresent: false, hit: true });
     if (this.state.enemy) {
+      whack.play();
       this.props.goodClickHandler();
     } else {
+      smash.play();
       this.props.badClickHandler();
     }
   };

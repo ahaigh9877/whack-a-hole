@@ -1,6 +1,11 @@
 import React from "react";
+import UIfx from "uifx";
+import failSound from "../assets/sounds/fail.mp3";
+
+const fail = new UIfx(failSound);
 
 const LoseScreen = props => {
+  fail.play();
   return (
     <div className="loseScreenContainer">
       <div className="loseText">
