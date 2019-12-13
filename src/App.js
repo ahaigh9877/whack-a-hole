@@ -1,11 +1,9 @@
 import React from "react";
 import Board3 from "./components/Board3";
 import { Route } from "react-router-dom";
-import TestComponent8 from "./components/TestComponent8";
 import WinScreen from "./components/WinScreen";
 import LoseScreen from "./components/LoseScreen";
 import StartScreen from "./components/StartScreen";
-import Board3Test from "./components/Board3-test";
 
 function App() {
   return (
