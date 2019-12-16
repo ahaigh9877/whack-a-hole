@@ -15,7 +15,7 @@ const LoseScreen = props => {
         YOU LOSE!
         <br />
         <br />
-        with a score of {props.score}
+        with a score of {props.score}.
         <br />
         The country descends into darkness and you're trapped forever with the
         Brexiters. <br />

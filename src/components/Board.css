@@ -3,27 +3,28 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(175, 175, 175);
 }
 
 div {
   overflow: hidden;
   box-sizing: border-box;
-  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
+  cursor: url(../assets/cursor/EU-Mallet.png) 100 60, auto;
 }
 
 div:active:hover {
-  cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto;
+  cursor: url(../assets/cursor/EU-Mallet-down.png) 100 60, auto;
   transition: 0.3s;
 }
 
 button {
   width: 100px;
   height: 100px;
-  cursor: url(../assets/cursor/EU-Mallet.svg) 100 60, auto;
+  cursor: url(../assets/cursor/EU-Mallet.png) 100 60, auto;
 }
 
 button:active:hover {
-  cursor: url(../assets/cursor/EU-Mallet-down.svg) 100 60, auto;
+  cursor: url(../assets/cursor/EU-Mallet-down.png) 100 60, auto;
 }
 
 .startScreenContainer {
@@ -266,7 +267,7 @@ a {
 
 .scoreText {
   position: absolute;
-  right: 120px;
+  right: 130px;
   top: 40px;
   padding-top: 5px;
   color: #003399;
@@ -279,6 +280,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 20px;
   left: 100px;
   top: 100px;
   width: 200px;
@@ -295,6 +297,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 20px;
   right: 100px;
   top: 100px;
   width: 200px;
@@ -401,6 +404,7 @@ a {
   /* border-radius: 75px; */
   box-sizing: border-box;
   filter: drop-shadow(2px 2px 0 red) drop-shadow(-2px -2px 0 red);
+  /* filter: drop-shadow(0 0 15px red); */
   /* animation-name: popup;
   animation-duration: 1200ms;
   animation-iteration-count: 1; */
