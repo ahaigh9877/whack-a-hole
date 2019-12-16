@@ -20,8 +20,7 @@ class Mole3 extends Component {
 
   getRandom() {
     return (
-      Math.floor(Math.random() * (this.state.max - this.state.min + 1)) +
-      this.state.min
+      Math.floor(Math.random() * (max - this.state.min + 1)) + this.state.min
     );
   }
 
@@ -47,49 +46,41 @@ class Mole3 extends Component {
     }
   };
 
-  showHide = () => {
-    if (this.props.seconds > 0 && !this.state.timeout) {
-      this.setState({ timeout: true });
-      if (!this.state.thingPresent) {
-        return setTimeout(() => {
-          this.setState({
-            thingPresent: true,
-            timeout: false,
-            // max: 8000,
-            // min: 5000,
-            enemy: this.friendOrFoe()
-          });
-        }, this.getRandom());
-      } else {
-        return setTimeout(() => {
-          this.setState({ thingPresent: false, timeout: false });
-        }, 2000);
-      }
-    }
-  };
-
   // showHide = () => {
-  //   if (!this.state.thingPresent) {
-  //     return setTimeout(() => {
-  //       this.setState({
-  //         thingPresent: true,
-  //         max: 8000,
-  //         min: 5000,
-  //         enemy: this.friendOrFoe()
-  //       });
-  //     }, this.getRandom());
-  //   } else {
-  //     return setTimeout(() => {
-  //       this.setState({ thingPresent: false });
-  //     }, 2000);
+  //   if (this.props.seconds > 0 && !this.state.timeout) {
+  //     this.setState({ timeout: true });
+  //     if (!this.state.thingPresent) {
+  //       return setTimeout(() => {
+  //         this.setState({
+  //           thingPresent: true,
+  //           timeout: false,
+  //           enemy: this.friendOrFoe()
+  //         });
+  //       }, this.getRandom());
+  //     } else {
+  //       return setTimeout(() => {
+  //         this.setState({ thingPresent: false, timeout: false });
+  //       }, 2000);
+  //     }
   //   }
   // };
 
-  // componentDidMount() {
-  //   setInterval(() => {
-  //     this.showHide();
-  //   }, 1000);
-  // }
+  showHide = () => {
+    if (!this.state.thingPresent) {
+      return setTimeout(() => {
+        this.setState({
+          thingPresent: true,
+          max: 8000,
+          min: 5000,
+          enemy: this.friendOrFoe()
+        });
+      }, this.getRandom());
+    } else {
+      return setTimeout(() => {
+        this.setState({ thingPresent: false });
+      }, 2000);
+    }
+  };
 
   render() {
     this.showHide();

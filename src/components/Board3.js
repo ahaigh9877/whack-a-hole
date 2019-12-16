@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
 import UIfx from "uifx";
 import Sound from "react-sound";
-import Mole3 from "./Mole3";
+import Mole3 from "./Mole3-hooks";
 import WinScreen from "./WinScreen";
 import Brexometer from "./Brexometer";
 import "./Board.css";
@@ -11,7 +11,7 @@ import clangSound from "../assets/sounds/clang.mp3";
 import tickSound from "../assets/sounds/clock.mp3";
 import bashees from "../assets/foes/ALLFOES.png";
 import decoys from "../assets/friends/ALLFRIENDS.png";
-import title from "../assets/Title.svg";
+import title from "../assets/Title.png";
 
 const clang = new UIfx(clangSound);
 
@@ -165,11 +165,11 @@ class Board extends Component {
               )}
               {this.state.seconds <= 30 && this.state.seconds >= 1 && (
                 <div className="boardOuter">
-                  {this.state.holes.map((hole, index) => (
-                    <div className="boardHole" key={index}>
+                  {this.state.holes.map(hole => (
+                    <div className="boardHole" key={hole.id}>
                       <Mole3
                         id={hole.id}
-                        key={index}
+                        key={hole.id}
                         seconds={this.state.seconds}
                         goodClickHandler={this.goodClickHandler}
                         badClickHandler={this.badClickHandler}
