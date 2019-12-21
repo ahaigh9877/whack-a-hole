@@ -23,7 +23,7 @@ const Foe = props => {
   return (
     <Animated animationIn={inAnims[Math.floor(Math.random() * 8)]}>
       <div className="foe" onClick={() => props.clickHandler()}>
-        <img src={face} alt="face" style={{ width: "150px" }} />
+        <img src={face} alt="face" style={{ width: "110px" }} />
       </div>
     </Animated>
   );

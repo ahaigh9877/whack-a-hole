@@ -34,22 +34,22 @@ button:active:hover {
   justify-content: space-evenly;
   align-items: center;
   margin: 50px auto;
-  width: 1200px;
-  height: 1100px;
+  width: 900px;
+  height: 750px;
   border: 2px solid #003399;
   background-color: rgb(37, 87, 87);
   border-radius: 10px;
 }
 
 .passportContainer {
-  width: 1000px;
+  width: 800px;
   animation-name: fadeUp;
   animation-duration: 5000ms;
   animation-iteration-count: 1;
 }
 
 .passport {
-  width: 1000px;
+  width: 800px;
 }
 
 .introTextContainer {
@@ -58,11 +58,11 @@ button:active:hover {
   left: 50%;
   padding: 30px;
   transform: translate(-50%, -50%);
-  width: 800px;
+  width: 700px;
   border-radius: 30px;
   text-align: center;
   font-family: "Special Elite", sans-serif;
-  font-size: 60px;
+  font-size: 45px;
   color: #003399;
   background-color: rgba(255, 255, 255, 0.6);
   animation-name: fadeIn;
@@ -99,15 +99,15 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 1200px;
-  height: 1100px;
+  width: 900px;
+  height: 750px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
 .bashABrexiter {
   padding: 100px;
   font-family: "Luckiest Guy", sans-serif;
-  font-size: 200px;
+  font-size: 130px;
   text-align: center;
   color: #003399;
   text-shadow: 0 0 100px white;
@@ -120,9 +120,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 200px;
-  margin-top: -70px;
+  width: 180px;
+  height: 180px;
+  margin-top: -80px;
   padding-top: 25px;
   border: none;
   border-radius: 100px;
@@ -157,9 +157,9 @@ a {
 
 .bashTitle {
   position: absolute;
-  top: 65px;
-  left: 100px;
-  width: 1000px;
+  top: 45px;
+  left: 80px;
+  width: 750px;
   filter: drop-shadow(0 0 15px #ffffff);
 }
 
@@ -168,19 +168,19 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 1000px;
+  height: 800px;
 }
 
 .instructions {
-  width: 900px;
-  height: 550px;
+  width: 600px;
+  height: 360px;
   padding: 30px 100px 30px 100px;
   margin: 0 100px 0 100px;
   border-radius: 40px;
   text-align: center;
-  line-height: 60px;
+  line-height: 33px;
   font-family: "Rubik";
-  font-size: 30px;
+  font-size: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.5);
 }
@@ -189,8 +189,8 @@ a {
   position: absolute;
   left: 45px;
   bottom: 40px;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   border-radius: 0 0 20px 20px;
 }
 
@@ -198,29 +198,29 @@ a {
   position: absolute;
   right: 45px;
   bottom: 40px;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   border-radius: 0 0 20px 20px;
 }
 
 .bashees {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
 }
 
 .decoys {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
 }
 
 .startButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 200px;
-  margin-top: 100px;
-  margin-bottom: -40px;
+  width: 160px;
+  height: 160px;
+  margin-top: 60px;
+  margin-bottom: 0px;
   padding-top: 25px;
 
   border: none;
@@ -230,7 +230,7 @@ a {
 
   color: #003399;
   font-family: "Luckiest Guy", sans-serif;
-  font-size: 100px;
+  font-size: 80px;
   transition: 0.3s;
 }
 
@@ -246,8 +246,8 @@ a {
   justify-content: space-evenly;
   align-items: center;
   margin: 50px auto;
-  width: 1200px;
-  height: 1100px;
+  width: 900px;
+  height: 750px;
   border: 2px solid #003399;
   box-shadow: 0 0 40px 5px #003399;
   border-radius: 10px;
@@ -257,8 +257,8 @@ a {
 
 .timeLeftText {
   position: absolute;
-  left: 90px;
-  top: 40px;
+  left: 50px;
+  top: 25px;
   padding-top: 5px;
   color: #003399;
   font-family: "Luckiest Guy", sans-serif;
@@ -267,8 +267,8 @@ a {
 
 .scoreText {
   position: absolute;
-  right: 130px;
-  top: 40px;
+  right: 90px;
+  top: 25px;
   padding-top: 5px;
   color: #003399;
   font-family: "Luckiest Guy", sans-serif;
@@ -281,15 +281,15 @@ a {
   align-items: center;
   justify-content: center;
   padding-top: 20px;
-  left: 100px;
-  top: 100px;
-  width: 200px;
-  height: 200px;
+  left: 90px;
+  top: 90px;
+  width: 140px;
+  height: 140px;
   border-radius: 100px;
   background-color: #003399;
   color: white;
   font-family: "Luckiest Guy", sans-serif;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .scoreCounter {
@@ -298,31 +298,32 @@ a {
   align-items: center;
   justify-content: center;
   padding-top: 20px;
-  right: 100px;
-  top: 100px;
-  width: 200px;
-  height: 200px;
+  right: 90px;
+  top: 90px;
+  width: 140px;
+  height: 140px;
   border-radius: 100px;
   background-color: #003399;
   color: white;
   font-family: "Luckiest Guy", sans-serif;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .arrow {
-  height: 300px;
+  height: 200px;
   transform-origin: 50% 95%;
   transition: 0.3s;
 }
 
 .brexometerText {
   position: absolute;
-  top: 250px;
-  left: 65px;
+  top: 155px;
+  left: 20px;
   margin: 0;
   font-family: "Special Elite";
-  font-size: 70px;
+  font-size: 50px;
   margin-bottom: -10px;
+  color: rgb(54, 54, 54);
 }
 
 .arrowHolder {
@@ -331,8 +332,8 @@ a {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 600px;
-  height: 320px;
+  width: 380px;
+  height: 200px;
   margin-top: -70px;
   border: 2px solid #003399;
   border-radius: 410px 410px 0 0;
@@ -347,43 +348,43 @@ a {
   justify-content: space-evenly;
   align-items: center;
   font-family: "Luckiest Guy";
-  font-size: 100px;
+  font-size: 80px;
   color: white;
   margin: 0 auto;
-  width: 1000px;
-  height: 700px;
+  width: 700px;
+  height: 470px;
   border: 2px solid #003399;
   border-radius: 10px;
   background-color: #003399;
 }
 
 .boardHole {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   /* border: 5px solid rgb(198, 137, 32); */
-  background-color: #ffcc00;
+  background-color: #ffdb49;
   border-radius: 15px;
-  margin: 20px 30px 10px 30px;
+  margin: 0px 30px 0px 30px;
   box-sizing: border-box;
 }
 
 .moleContainer {
   display: flex;
   align-items: center;
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   /* border-radius: 75px; */
 }
 
 .mole {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   border-radius: 75px;
 }
 
 .friend {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
   /* background-color: blue; */
   /* border: 8px solid #003399; */
@@ -396,8 +397,8 @@ a {
 }
 
 .foe {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
   /* background-color: red; */
   /* border: 8px solid red; */
@@ -411,8 +412,8 @@ a {
 }
 
 .notMole {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
   background-color: transparent;
   border-radius: 75px;
@@ -426,8 +427,8 @@ a {
   justify-content: space-evenly;
   align-items: center;
   margin: 50px auto;
-  width: 1200px;
-  height: 1100px;
+  width: 900px;
+  height: 750px;
   border: 2px solid #003399;
   border-radius: 10px;
 
@@ -441,22 +442,22 @@ a {
   justify-content: center;
   align-items: center;
   color: #ffcc00;
-  top: 200px;
+  top: 120px;
 }
 
 .winExtraText {
   font-family: "Rubik", sans-serif;
-  width: 800px;
+  width: 775px;
   padding: 10px 40px 40px 40px;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   text-shadow: 0 0 20px #f6dd77;
 }
 
 .winText {
   padding: 30px;
   font-family: "Luckiest Guy", sans-serif;
-  font-size: 130px;
+  font-size: 100px;
   text-shadow: 0 0 20px #f6dd77;
 }
 
@@ -465,14 +466,14 @@ a {
   text-align: center;
   padding: 20px;
   margin-top: -20px;
-  font-size: 60px;
+  font-size: 40px;
   text-shadow: 0 0 20px #f6dd77;
 }
 
 .tryAgainButtonWin {
   width: 200px;
   height: 200px;
-  margin: 50px;
+  margin: 0px;
   padding-bottom: 15px;
   border: none;
   border-radius: 100px;
@@ -496,10 +497,10 @@ a {
   justify-content: space-evenly;
   align-items: center;
   margin: 50px auto;
-  width: 1200px;
-  height: 1100px;
+  width: 900px;
+  height: 750px;
   padding: 0 100px 0 100px;
-  border: 2px solid #003399;
+  border: 2px solid black;
   border-radius: 10px;
   background-image: url(../assets/losescreen/torn-uk-flag.png);
   background-repeat: no-repeat;
@@ -509,7 +510,7 @@ a {
 .loseText {
   text-align: center;
   font-family: "Special Elite", sans-serif;
-  font-size: 70px;
+  font-size: 40px;
   color: darkgray;
   text-shadow: 0 0 10px black;
   margin-top: 100px;
@@ -524,7 +525,7 @@ a {
   outline: none;
   color: black;
   font-family: "Special Elite", sans-serif;
-  font-size: 35px;
+  font-size: 40px;
   background-color: darkgrey;
 }
 

@@ -38,19 +38,19 @@ export default props => {
             width={width}
             height={height}
             numberOfPieces={200}
-            confettiSource={{ w: 10, h: 10, x: 200, y: 200 }}
+            confettiSource={{ w: 10, h: 10, x: 100, y: 200 }}
             colors={["#003399", "#FFCC00"]}
           />
           <Confetti
             width={width}
             height={height}
             numberOfPieces={200}
-            confettiSource={{ w: 10, h: 10, x: 1000, y: 200 }}
+            confettiSource={{ w: 10, h: 10, x: 800, y: 200 }}
             colors={["#003399", "#FFCC00"]}
           />
         </React.Fragment>
       )}
-      <video height="1100" className="winBgVideo" loop autoPlay>
+      <video height="750" className="winBgVideo" loop autoPlay>
         <source src={videoUrl} type="video/mp4" />
       </video>
       <div className="winTextContainer">

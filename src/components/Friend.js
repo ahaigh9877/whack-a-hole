@@ -23,7 +23,7 @@ const Friend = props => {
   return (
     <Animated animationIn={inAnims[Math.floor(Math.random() * 8)]}>
       <div className="friend" onClick={() => props.clickHandler()}>
-        <img src={friend} alt="friend" style={{ width: "150px" }} />
+        <img src={friend} alt="friend" style={{ width: "110px" }} />
       </div>
     </Animated>
   );
