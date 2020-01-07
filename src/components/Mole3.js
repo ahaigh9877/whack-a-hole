@@ -83,8 +83,12 @@ class Mole3 extends Component {
   //   }
   // };
 
-  render() {
+  componentDidUpdate(){
     this.showHide();
+  }
+
+  render() {
+  
     return (
       <div className="moleContainer">
         {this.state.thingPresent && this.state.enemy && (

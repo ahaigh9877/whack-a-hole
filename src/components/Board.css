@@ -46,6 +46,8 @@ button:active:hover {
   animation-name: fadeUp;
   animation-duration: 5000ms;
   animation-iteration-count: 1;
+  animation-delay: 3s;
+  animation-fill-mode: backwards;
 }
 
 .passport {
@@ -54,7 +56,7 @@ button:active:hover {
 
 .introTextContainer {
   position: fixed;
-  top: 70%;
+  top: 60%;
   left: 50%;
   padding: 30px;
   transform: translate(-50%, -50%);
