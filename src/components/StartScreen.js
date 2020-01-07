@@ -9,13 +9,8 @@ class StartScreen extends Component {
     super(props);
 
     this.state = {
-      seconds: 0,
-      imageloaded: false
+      seconds: 0
     };
-  }
-
-  handleImageLoad() {
-    this.setState({ imageloaded: true });
   }
 
   tick() {
@@ -25,31 +20,27 @@ class StartScreen extends Component {
   }
 
   componentDidMount() {
+    console.log("componentDidMount");
     this.interval = this.props.setInterval(() => this.tick(), 1000);
   }
 
   render() {
-    if (!passport) {
+    if (this.state.seconds < 6) {
       return <div>Loading...</div>;
     } else {
       return (
         <div className="startScreenContainer">
           <div className="passportContainer">
-            <img
-              className="passport"
-              alt="passport"
-              src={passport}
-              onLoad={() => this.handleImageLoad}
-            />
+            <img className="passport" alt="passport" src={passport} />
           </div>
-          {this.state.seconds > 2 && (
+          {this.state.seconds > 8 && (
             <div className="introTextContainer">
               These horrible men want to take your TRAVEL RIGHTS away!
               <br />
               Don't let them get away with it...
             </div>
           )}
-          {this.state.seconds > 8 && (
+          {this.state.seconds > 14 && (
             <div className="bashABrexiterContainer">
               <div className="bashABrexiter">
                 BASH
