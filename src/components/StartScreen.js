@@ -41,14 +41,14 @@ class StartScreen extends Component {
             src={passport}
           />
         </div>
-        {this.state.seconds > 8 && (
+        {this.state.seconds > 4 && (
           <div className="introTextContainer">
             These horrible men want to take your TRAVEL RIGHTS away!
             <br />
             Don't let them get away with it...
           </div>
         )}
-        {this.state.seconds > 14 && (
+        {this.state.seconds > 10 && (
           <div className="bashABrexiterContainer">
             <div className="bashABrexiter">
               BASH
