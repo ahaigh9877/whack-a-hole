@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactTimeout from "react-timeout";
 import UIfx from "uifx";
 import Sound from "react-sound";
-import Mole3 from "./Mole3-hooks";
+import Mole3 from "./Mole3";
 import WinScreen from "./WinScreen";
 import Brexometer from "./Brexometer";
 import "./Board.css";
@@ -60,7 +60,6 @@ class Board extends Component {
   };
 
   startGame = () => {
-    //setTimeout(() => ticking.setVolume(0.5).play(), 23000);
     setTimeout(
       () => <Sound url={tickSound} playStatus={Sound.status.PLAYING} />,
       23000
@@ -184,9 +183,9 @@ class Board extends Component {
           )}
         </div>
       );
-    } else if (this.state.seconds === 0 && this.state.score > 0) {
+    } else if (this.state.seconds === 0 && this.state.score > 29) {
       return <WinScreen score={this.state.score} tryAgain={this.tryAgain} />;
-    } else if (this.state.seconds === 0 && this.state.score <= 0) {
+    } else if (this.state.seconds === 0 && this.state.score <= 29) {
       return <LoseScreen score={this.state.score} tryAgain={this.tryAgain} />;
     }
   }

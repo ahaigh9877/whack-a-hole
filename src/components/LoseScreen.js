@@ -23,7 +23,9 @@ const LoseScreen = props => {
         No more free travel for you...
       </div>
       <button className="tryAgainButtonLose" onClick={() => props.tryAgain()}>
-        try again?
+        try
+        <br />
+        again?
       </button>
     </div>
   );

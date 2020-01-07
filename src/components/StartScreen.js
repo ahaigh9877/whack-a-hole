@@ -9,8 +9,13 @@ class StartScreen extends Component {
     super(props);
 
     this.state = {
-      seconds: 0
+      seconds: 0,
+      imageloaded: false
     };
+  }
+
+  handleImageLoad() {
+    this.setState({ imageloaded: true });
   }
 
   tick() {
@@ -24,32 +29,41 @@ class StartScreen extends Component {
   }
 
   render() {
-    return (
-      <div className="startScreenContainer">
-        <div className="passportContainer">
-          <img className="passport" alt="passport" src={passport} />
-        </div>
-        {this.state.seconds > 2 && (
-          <div className="introTextContainer">
-            These horrible men want to take your TRAVEL RIGHTS away!
-            <br />
-            Don't let them get away with it...
+    if (!passport) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div className="startScreenContainer">
+          <div className="passportContainer">
+            <img
+              className="passport"
+              alt="passport"
+              src={passport}
+              onLoad={() => this.handleImageLoad}
+            />
           </div>
-        )}
-        {this.state.seconds > 8 && (
-          <div className="bashABrexiterContainer">
-            <div className="bashABrexiter">
-              BASH
-              <br />A<br />
-              BREXITER!
+          {this.state.seconds > 2 && (
+            <div className="introTextContainer">
+              These horrible men want to take your TRAVEL RIGHTS away!
+              <br />
+              Don't let them get away with it...
             </div>
-            <Link to={"/game"}>
-              <button className="BaBbutton">GO</button>
-            </Link>
-          </div>
-        )}
-      </div>
-    );
+          )}
+          {this.state.seconds > 8 && (
+            <div className="bashABrexiterContainer">
+              <div className="bashABrexiter">
+                BASH
+                <br />A<br />
+                BREXITER!
+              </div>
+              <Link to={"/game"}>
+                <button className="BaBbutton">GO</button>
+              </Link>
+            </div>
+          )}
+        </div>
+      );
+    }
   }
 }
 

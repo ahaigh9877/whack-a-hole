@@ -11,6 +11,7 @@ function App() {
       <Route exact path="/" component={StartScreen} />
       <Route exact path="/game" component={Board3} />
       {/* <WinScreen /> */}
+      {/* <StartScreen /> */}
       {/* <TestComponent6 /> */}
       {/* <TestComponent8 /> */}
       {/* <LoseScreen /> */}
